@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+    <title>kfc eleme</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="background">
+            <img id="headpic" src="head.jpg">
+            <div id="back">
+                <span class="fa fa-angle-left"></span>
+            </div>
+            <div id="star">
+                <span class="fa fa-star-o"></span>
+            </div>
+            <div id="share">
+                <span class="fa fa-share-square-o"></span>
+            </div>
+            <p id="pingjia">{{comment}}</p>
+        </div>
+        <div id="page">
+            <div id="message">
+                <img id="kfcpic" src="kfc.jpg">
+                <h1>肯德基宅急送（ 蜀汉店）</h1>
+                <h2>商家配送约30分钟｜月售631</h2>
+                <h3>公告：欢迎光临肯德基宅急送，专业外卖，全程保温，准时送达！</h3>
+                <button class="button">49减6</button>
+                <button class="button">79减25</button>
+                <button class="button">特价商品10元起</button>
+                <button class="button3 fa fa-angle-right"></button>
+            </div>
+
+            <div class="clear"></div>
+
+            <div id="card">
+                <div id="card1">
+                    <p class="cardname">666神卡</p>
+                    <button class="button1">购卡</button>
+                    <p class="cardtext">入会享好礼</p>
+                </div>
+                <div id="card2">
+                    <p class="cardname">本地饭票</p>
+                    <button class="button1">抢购</button>
+                    <p class="cardtext">购券下单立享<span id="red">1.4折</span>优惠</p>
+                </div>
+            </div>
+
+            <div class="clear divider"></div>
+
+            <div id="order">
+                <button class="button2"><span class="fa fa-search"></span></button>
+                <button class="button2">点餐</button>
+                <button class="button2">评价<sup id="up"> 4.8</sup></button>
+                <button class="button2">商家</button>
+                <button id="pindan">好友拼单</button>
+            </div>
+
+            <div id="pics">
+                <div id="box">
+                    <img id="pic1" src="pic1.jpg">
+                    <img id="pic2" src="pic2.jpg">
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div id="suggest">
+                <p id="text">商家推荐</p>
+                <button class="button4"><span class="fa fa-angle-right"></span></button>
+                <div class="clear"></div>
+                <div id="boxbox">
+                    <div v-for="item in list" id="box1">
+                        <img class="food" v-bind:src="item.pic">
+                        <p class="text2">{{item.name}}</p>
+                        <span class="text3"><span class="small0">¥</span>{{item.price}}<span
+                                id="delete0">¥{{item.priceO}}</span></span>
+                        <button class="button7 button5" v-on:click="plusclick(item)"><span
+                                class="fa fa-plus-circle"></span></button>
+                    </div>
+                    <!-- <div id="box2">
+                        <img class="food" src="pic4.jpg">
+                        <p class="text2">手撕鸡鸡翅尖</p>
+                        <span class="text3"><span class="small0">¥</span>39</span>
+                        <button class="button7 button5"><span class="fa fa-plus-circle"></span></button>
+                    </div>
+                    <div id="box3">
+                        <img class="food" src="pic5.jpg">
+                        <p class="text2">2杯椰果奶茶</p>
+                        <span class="text3"><span class="small0">¥</span>24 <span id="delete0">¥29</span></span>
+                        <button class="button7 button5"><span class="fa fa-plus-circle"></span></button> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div id="food">
+                <div id="leftbox">
+                    <div id="left">
+                        <button class="button6 first"><span class="fa fa-tags"></span>优惠</button>
+                        <button v-for="item in leibie" class="button6">{{item}}</button>
+                        <!--   <button class="button6">串串 / 卤味</button>
+                        <button class="button6">K记饭桶</button>
+                        <button class="button6">美味汉堡 / 卷</button>
+                        <button class="button6">潮汉堡</button>
+                        <button class="button6">原味鸡</button>
+                        <button class="button6">鸡翅 / 鸡排</button>
+                        <button class="button6">小食 / 配餐</button>
+                        <button class="button6">甜品 / 冰淇淋</button>
+                        <button class="button6">炸鸡 / 啤酒</button>
+                        <button class="button6">缤纷饮料</button>
+                        <button class="button6">K咖啡</button>
+                        <button class="button6">儿童套餐</button>
+                        <button class="button6">量贩分享装</button>
+                        <button class="button6"></button>
+                        <button class="button6"></button>
+                        <button class="button6"></button> -->
+                    </div>
+                </div>
+                <div id="right">
+                    <p id="sales"><span id="bigger">优惠</span>&nbsp;&nbsp;美味又实惠，大家快来抢</p>
+                    <div v-for="item in list" class="hahaha">
+                        <img class="chicken" v-bind:src="item.pic">
+                        <p class="text6">{{item.name}}</p>
+                        <p class="text7">{{item.miaoshu}}</p>
+                        <p class="text7">月售39</p>
+                        <p class="text9"><span class="number">8.2折</span>&nbsp&nbsp每单限1份优惠</p>
+                        <span class="small">¥</span><span class="text3">{{item.price}} </span><span
+                            id="delete">¥{{item.priceO}}</span>
+                        <button v-on:click="plusclick(item)" class="button5"><span
+                                class="fa fa-plus-circle"></span></button>
+                        <span class="single" v-if="item.num">{{item.num}}</span>
+                        <button v-on:click="minusclick(item)" class="button10" v-if="item.num"><span
+                                class="fa fa-minus"></span></button>
+                    </div>
+                    </ul>
+                    <!-- <div class="hahaha">
+                        <img class="chicken" src="pic7.jpg">
+                        <p class="text6">堡堡双人套餐T</p>
+                        <p class="text7">香辣鸡腿堡1个+新奥尔良烤鸡腿堡1个+2块香辣鸡翅+2块新奥尔良烤翅+土豆泥+鸡米花+红豆派+可乐+九珍一杯</p>
+                        <p class="text7">月售29</p>
+                        <p class="text9"><span class="number">7.5折</span>&nbsp&nbsp每单限1份优惠</p>
+                        <span class="small">¥</span><span class="text3">84 </span><span id="delete">¥112.5</span>
+                        <button class="button5"><span class="fa fa-plus-circle"></span></button>
+                        <span class="single">0</span>
+                        <button class="button10"><span class="fa fa-minus"></span></button>
+                    </div>
+                    <div class="hahaha">
+                        <img class="chicken" src="pic8.jpg">
+                        <p class="text6">六味小吃桶T</p>
+                        <p class="text7">4块烤翅+2块辣翅+1块原味鸡+5块黄金鸡块+1份劲爆鸡米花+红豆派+可乐+九珍一杯</p>
+                        <p class="text7">月售28</p>
+                        <p class="text9"><span class="number">7.8折</span>&nbsp&nbsp每单限1份优惠</p>
+                        <span class="small">¥</span><span class="text3">69 </span><span id="delete">¥88.5</span>
+                        <button class="button5"><span class="fa fa-plus-circle"></span></button>
+                        <span class="single">0</span>
+                        <button class="button10"><span class="fa fa-minus"></span></button>
+                    </div>
+                    <div class="hahaha">
+                        <img class="chicken" src="pic9.jpg">
+                        <p class="text6">炸鸡分享桶T</p>
+                        <p class="text7">两块香辣鸡翅+2块新奥尔良烤翅+黄金鸡块5块+劲爆鸡米花一份+2可乐</p>
+                        <p class="text7">月售25</p>
+                        <p class="text9"><span class="number">8.3折</span>&nbsp&nbsp每单限1份优惠</p>
+                        <span class="small">¥</span><span class="text3">59.9 </span><span id="delete">¥72</span>
+                        <button class="button5"><span class="fa fa-plus-circle"></span></button>
+                        <span class="single">0</span>
+                        <button class="button10"><span class="fa fa-minus"></span></button>
+                    </div>
+                    <div class="hahaha">
+                        <img class="chicken" src="pic10.jpg">
+                        <p class="text6">吮指原味鸡6块装T</p>
+                        <p class="text7">吮指原味鸡6块装</p>
+                        <p class="text7">月售20</p>
+                        <p class="text9"><span class="number">8折</span>&nbsp&nbsp每单限1份优惠</p>
+                        <span class="small">¥</span><span class="text3">60 </span><span id="delete">¥75</span>
+                        <button class="button5"><span class="fa fa-plus-circle"></span></button>
+                        <span class="single">0</span>
+                        <button class="button10"><span class="fa fa-minus"></span></button>
+                    </div>
+                    <div class="hahaha">
+                        <img class="chicken" src="pic11.jpg">
+                        <p class="text6">10块奥尔良烤翅T</p>
+                        <p class="text7">10块新奥尔良烤翅T</p>
+                        <p class="text7">月售16</p>
+                        <p class="text9"><span class="number">8.2折</span>&nbsp&nbsp每单限1份优惠</p>
+                        <span class="small">¥</span><span class="text3">49 </span><span id="delete">¥60</span>
+                        <button class="button5"><span class="fa fa-plus-circle"></span></button>
+                        <span class="single">0</span>
+                        <button class="button10"><span class="fa fa-minus"></span></button>
+                    </div>
+                    <div class="hahaha">
+                        <img class="chicken" src="pic3.jpg">
+                        <p class="text6">撸串桶可乐T</p>
+                        <p class="text7">川香燃辣撸串桶1份红+百事可乐（中）2杯/p>
+                            <p class="text7">月售28</p>
+                            <p class="text9"><span class="number">9.1折</span>&nbsp&nbsp每单限1份优惠</p>
+                            <span class="small">¥</span><span class="text3">72 </span><span id="delete">¥79</span>
+                            <button class="button5"><span class="fa fa-plus-circle"></span></button>
+                            <span class="single">0</span>
+                            <button class="button10"><span class="fa fa-minus"></span></button>
+                        </div>
+                        <div class="hahaha">
+                            <img class="chicken" src="pic4.jpg">
+                            <p class="text6">手撕鸡鸡翅尖</p>
+                            <p class="text7">手撕鸡鸡翅尖</p>
+                            <p class="text7">月售28</p>
+                            <p class="text9"><span class="number">7.8折</span>&nbsp&nbsp每单限1份优惠</p>
+                            <span class="small">¥</span><span class="text3">39 </span>
+                            <button class="button5"><span class="fa fa-plus-circle"></span></button>
+                            <span class="single">0</span>
+                            <button class="button10"><span class="fa fa-minus"></span></button>
+                        </div>
+                        <div class="hahaha">
+                            <img class="chicken" src="pic5.jpg">
+                            <p class="text6">2杯椰果奶茶（冰）T</p>
+                            <p class="text7">2杯椰果奶茶</p>
+                            <p class="text7">月售28</p>
+                            <p class="text9"><span class="number">8.3折</span>&nbsp&nbsp每单限1份优惠</p>
+                            <span class="small">¥</span><span class="text3">24 </span><span id="delete">¥29</span>
+                            <button class="button5"><span class="fa fa-plus-circle"></span></button>
+                            <span class="single">0</span>
+                            <button class="button10"><span class="fa fa-minus"></span></button>
+                        </div> -->
+                    </disv>
+                </div>
+            </div>
+
+            <!-- <div id="boc">
+                
+                <div id="grey">
+                    <span id="alreadyOrder">已选商品</span>
+                    <span id="empty">清空</span>
+                </div>
+                
+                <div id="cart-item">
+                    <div class="smallbox">
+                        <span class="name">2杯椰果奶茶（冰）T</span>
+                        <span class="originalPrice"></span>
+                        <span class="nowMoney">¥</span>
+                        <span class="nowPrice">58</span>
+                        <button class="button666"><span class="fa fa-plus-circle"></span></button>
+                        <span class="single">0</span>
+                        <button class="button66"><span class="fa fa-minus"></span></button>
+                    </div>
+                </div>       
+            </div> -->
+
+            <div id="boc">
+                <div v-if="allNum==0" id="last-bottom">
+                    <p id="text8">满49满6、满79减25</p>
+                </div>
+                <div v-if="allNum" id="last-bottom0">
+                    <p id="text8text">已减{{chajia}}元</p>
+                    <p id="text8text2">已包含：商品优惠</p>
+                </div>
+                <div id="hidden" v-if="isCartShow">
+                    <div v-if="allNum" id="grey">
+                        <span id="alreadyOrder">已选商品</span>
+                        <span v-on:click="deleteClick" id="empty" class="fa fa-trash-o">清空</span>
+                        <br class="clear" />
+                    </div>
+
+                    <div id="cart-item">
+                        <div v-for="item in list" v-if="item.num" class="smallbox">
+                            <span class="name">{{item.name}}</span>
+                            <span class="originalPrice"></span>
+                            <span class="nowMoney">¥</span>
+                            <span class="nowPrice">{{item.price}}</span>
+                            <button v-on:click="plusclick(item)" class="button666"><span
+                                    class="fa fa-plus-circle"></span></button>
+                            <span class="single">{{item.num}}</span>
+                            <button v-on:click="minusclick(item)" class="button66"><span
+                                    class="fa fa-minus"></span></button>
+                        </div>
+
+                        <!-- <div class="smallbox">
+                            <span class="name">2杯椰果奶茶（冰）T</span>
+                            <span class="originalPrice"></span>
+                            <span class="nowMoney">¥</span>
+                            <span class="nowPrice">58</span>
+                            <button class="button666"><span class="fa fa-plus-circle"></span></button>
+                            <span class="single">0</span>
+                            <button class="button66"><span class="fa fa-minus"></span></button>
+                        </div> -->
+
+                        <!-- <div class="smallbox">
+                            <span class="name">2杯椰果奶茶（冰）T</span>
+                            <span class="originalPrice"></span>
+                            <span class="nowMoney">¥</span>
+                            <span class="nowPrice">58</span>
+                            <button class="button666"><span class="fa fa-plus-circle"></span></button>
+                            <span class="single">0</span>
+                            <button class="button66"><span class="fa fa-minus"></span></button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="bottom">
+                <span v-on:click="cartClick()" v-bind:style="{backgroundColor: allNum ?'rgb(67, 175, 224)' :'rgb(68, 67, 67)' }"class="fa fa-dropbox fa-5x"></span>
+                <span v-if="allNum" class="addnumber">{{allNum}}</span>
+                <span v-if="allNum" id="money">¥</span><span v-if="allNum" id="num">{{allPrice}}</span>
+                <span v-if="allNum" id="num1">¥{{allPriceO}}</span>
+                <p v-if="allNum==0" id="text4">未选购商品</p>
+                <p id="text5">另需配送费¥9</p>
+                <button v-bind:style="{backgroundColor: allNum ?'#74e974' :'rgb(102, 101, 101)' }" id="pay">{{allNum > 0 ? '去结算': '¥0起送'}}</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script2.js"></script>
+
+</html>

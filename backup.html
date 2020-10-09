@@ -1,0 +1,66 @@
+<script>
+    const init = function (img) {
+        const t = 1000;
+        const [w, h] = [img.width, img.height];
+        const cover = document.createElement('canvas');
+        cover.height = h;
+        cover.width = w;
+        cover.style.position = 'absolute';
+        cover.style.top = img.offsetTop + 'px';
+        cover.style.left = img.offsetLeft + 'px';
+        const ctx = cover.getContext('2d');
+        const drawCover = function () {
+            ctx.clearRect(0, 0, w, h);
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, w, h);
+        }
+        let isDrawing = false;
+        let path = [];
+        const drawLine = function (now) {
+            ctx.globalCompositeOperation = 'source-over';
+            drawCover();
+            path = path.filter(p => now - p.time < t);
+            ctx.beginPath();
+            ctx.lineCap = 'round';
+            ctx.globalCompositeOperation = 'desitination-out';
+            ctx.lineWidth = 50;
+            for(let p of path) {
+                const alpha = (1 - (now - p.time) / t);
+                ctx.strokeStyle = `rgba(0, 0, 0, ${alpha})`;
+                ctx.lineTo(p.x, p.y);
+            }
+            ctx.stroke();
+            requestAnimationFrame(drawLine);
+        }
+        cover.addEventListener(
+            'mousedown', function (event) {
+                isDrawing = true;
+                ctx.moveTo(event.clientX, event.clientY);
+            }
+        );
+        cover.addEventListener('mousemove', function (event) {
+            requestAnimationFrame(
+                ()=> {
+                    if(isDrawing) {
+                        path.push(
+                            {
+                                x: event.clientX,
+                                y: event.clientY,
+                                time: performance.now()
+                            }
+                        )
+                    }
+                }
+            )
+        });
+        cover.addEventListener('mouseup', function (event) {
+            isDrawing = false;
+        });
+        document.body.append(cover);
+        requestAnimationFrame(drawLine);
+    }
+    const backImage = document.querySelector('#img');
+    backImage.onload = function () {
+        init(this);
+    }
+</script>

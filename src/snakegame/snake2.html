@@ -1,0 +1,419 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div class="playground">
+    </div>
+    <div class="playground2"></div>
+    <div>
+        <h1 style="margin-left: 200px;">
+            <span>🐱：</span> <span style="color: red;" id="yl"></span>
+            <span>      vs      </span>
+            <span>🦌：</span> <span style="color: blue" id="mm"></span>
+        </h1>
+    </div>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        @keyframes rotating {
+            from {
+                transform: rotateY(0deg);
+            }
+
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .rotating {
+            animation: rotating;
+        }
+
+        .playground {
+            background-color: cadetblue;
+            width: 600px;
+            height: 600px;
+            position: absolute;
+        }
+
+        .playground2 {
+            width: 600px;
+            height: 600px;
+        }
+
+        .body {
+            background-image: url(money.png);
+            background-size: contain;
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            border-radius: 5px;
+            /* top: 150px;
+            left: 100px; */
+            animation: rotating 3s linear infinite;
+        }
+
+        .head {
+            background-image: url(head.png);
+            background-size: contain;
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            border-radius: 5px;
+            /* top: 150px;
+            left: 100px; */
+            /* animation: rotating  3s linear infinite; */
+        }
+
+        .bodym {
+            background-image: url(money.png);
+            background-size: contain;
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            border-radius: 5px;
+            animation: rotating 3s linear infinite;
+        }
+
+        .headm {
+            background-image: url(headm.jpeg);
+            background-size: contain;
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            background-size: contain;
+            border-radius: 5px;
+            /* margin-top: -5px;
+            margin-left: -5px; */
+        }
+
+        .food {
+            background-image: url(money.png);
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            background-size: contain;
+            border-radius: 15px;
+            margin-top: -5px;
+            margin-left: -5px;
+        }
+    </style>
+    <script>
+        /**
+         * [x, y]  0 <=  x,y <= 19
+        */
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        let generateFood = function () {
+            let arr = snake_arr.concat(snake_arr2);
+            while (true) {
+                let xx = getRandomInt(0, 19);
+                let yy = getRandomInt(0, 19);
+                let found = false;
+                for (let i = 0; i < arr.length; i++) {
+                    let loc = arr[i];
+                    if (loc[0] === xx && loc[1] == yy) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    return [xx, yy];
+                }
+            }
+        }
+
+        let score = {
+            yl: 0,
+            mm: 0,
+        }
+
+        let yl = document.querySelector("#yl");
+        let mm = document.querySelector("#mm");
+
+        function scorePlus(sn) {
+            if (sn == 1) {
+                score.mm += 1;
+            } else {
+                score.yl += 1;
+            }
+            yl.innerHTML = score.yl;
+            mm.innerHTML = score.mm;
+        }
+
+        scorePlus(1);
+        scorePlus(2);
+
+        let snake_arr = [
+            [1, 1],
+            [1, 2],
+            [2, 2],
+            [3, 2]
+        ];
+
+        let snake_arr2 = [
+            [6, 6],
+            [6, 7],
+            [7, 7],
+            [8, 7]
+        ];
+
+        let foodLocation = generateFood();
+
+
+        function huashe(arr, arr2, sn) {
+
+            if (sn == 1) {
+                let playground = document.querySelector('.playground');
+                playground.innerHTML = "";
+
+                for (var i = 0; i < arr.length - 1; i++) {
+
+                    let body = document.createElement('div');
+                    body.classList.add('body');
+                    body.style.top = 30 * arr[i][1] + 'px';
+                    body.style.left = 30 * arr[i][0] + 'px';
+                    playground.appendChild(body);
+
+                }
+
+                let head = document.createElement('div');
+                head.classList.add('head');
+                head.style.top = 30 * arr[arr.length - 1][1] + 'px';
+                head.style.left = 30 * arr[arr.length - 1][0] + 'px';
+                playground.appendChild(head);
+
+                let food = document.createElement('div');
+                food.classList.add('food');
+                food.style.top = 30 * foodLocation[1] + 'px';
+                food.style.left = 30 * foodLocation[0] + 'px';
+                playground.appendChild(food);
+            }
+            if (sn == 2) {
+
+                let playground = document.querySelector('.playground2');
+                playground.innerHTML = "";
+
+                for (var i = 0; i < arr2.length - 1; i++) {
+
+                    let bodym = document.createElement('div');
+                    bodym.classList.add('bodym');
+                    bodym.style.top = 30 * arr2[i][1] + 'px';
+                    bodym.style.left = 30 * arr2[i][0] + 'px';
+                    playground.appendChild(bodym);
+
+                }
+
+                let headm = document.createElement('div');
+                headm.classList.add('headm');
+                headm.style.top = 30 * arr2[arr2.length - 1][1] + 'px';
+                headm.style.left = 30 * arr2[arr2.length - 1][0] + 'px';
+                playground.appendChild(headm);
+
+                let food = document.createElement('div');
+                food.classList.add('food');
+                food.style.top = 30 * foodLocation[1] + 'px';
+                food.style.left = 30 * foodLocation[0] + 'px';
+                playground.appendChild(food);
+            }
+        }
+
+        huashe(snake_arr, snake_arr2, 1);
+        huashe(snake_arr, snake_arr2, 2);
+
+        let contains = function (arr, loc) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i][0] === loc[0] && arr[i][1] === loc[1]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        let gameover = function (sn) {
+            clearInterval(interval1);
+            clearInterval(interval2);
+            if (sn == 1) {
+                window.alert("喵喵赢了");
+            } else {
+                window.alert("颜璐赢了");
+            }
+            location.reload();
+        }
+
+        function judge(arr, head, sn) {
+            if (contains(snake_arr, head)
+                || contains(snake_arr2, head)
+                || head[0] < 0 || head[0] > 19
+                || head[1] < 0 || head[1] > 19
+            ) {
+                gameover(sn);
+            }
+            arr.push(head);
+            if (head[0] === foodLocation[0] && head[1] === foodLocation[1]) {
+                foodLocation = generateFood();
+                scorePlus(sn);
+            } else {
+                arr.shift();
+            }
+        }
+
+        function run(direction, before_direction, sn) {
+
+            let arr;
+            if (sn == 1) {
+                arr = snake_arr;
+            } else {
+                arr = snake_arr2;
+            }
+
+            let length = arr.length;
+
+            switch (direction) {
+                case 1:
+                    if (direction != -before_direction) {
+                        let head = [arr[length - 1][0], arr[length - 1][1] - 1];
+                        judge(arr, head, sn);
+                        return true;
+                    }
+                    break;
+                case -1:
+                    if (direction != -before_direction) {
+                        let head = [arr[length - 1][0], arr[length - 1][1] + 1];
+                        judge(arr, head, sn);
+                        return true;
+                    }
+                    break;
+
+                case 2:
+                    if (direction != -before_direction) {
+                        let head = [arr[length - 1][0] - 1, arr[length - 1][1]];
+                        judge(arr, head, sn);
+                        return true;
+                    }
+                    break;
+
+                case -2:
+                    if (direction != -before_direction) {
+                        let head = [arr[length - 1][0] + 1, arr[length - 1][1]];
+                        judge(arr, head, sn);
+                        return true;
+                    }
+                    break;
+            }
+            return false;
+        }
+
+        document.onkeydown = checkKey;
+
+        let before_direction = -2;
+        let before_direction2 = -2;
+
+
+        function checkKey(e) {
+
+            e.preventDefault();
+            if (e.keyCode == '38') {
+                let direction = 1;
+                if (run(direction, before_direction, 1)) {
+                    huashe(snake_arr, snake_arr2, 1);
+                    before_direction = direction;
+                }
+            }
+            else if (e.keyCode == '40') {
+                let direction = -1;
+                if (run(direction, before_direction, 1)) {
+
+                    huashe(snake_arr, snake_arr2, 1);
+                    before_direction = direction;
+                }
+            }
+            else if (e.keyCode == '37') {
+                let direction = 2;
+                if (run(direction, before_direction, 1)) {
+                    huashe(snake_arr, snake_arr2, 1);
+                    before_direction = direction;
+                }
+            }
+            else if (e.keyCode == '39') {
+                let direction = -2;
+                if (run(direction, before_direction, 1)) {
+                    huashe(snake_arr, snake_arr2, 1);
+                    before_direction = direction;
+                }
+            }
+            else if (e.keyCode == '87') {
+                let direction2 = 1;
+                if (run(direction2, before_direction2, 2)) {
+                    huashe(snake_arr, snake_arr2, 2);
+                    before_direction2 = direction2;
+                }
+            }
+            else if (e.keyCode == '83') {
+                let direction2 = -1;
+                if (run(direction2, before_direction2, 2)) {
+                    huashe(snake_arr, snake_arr2, 2);
+                    before_direction2 = direction2;
+                }
+            }
+            else if (e.keyCode == '65') {
+                let direction2 = 2;
+                if (run(direction2, before_direction2, 2)) {
+                    huashe(snake_arr, snake_arr2, 2);
+                    before_direction2 = direction2;
+                }
+            }
+            else if (e.keyCode == '68') {
+                let direction2 = -2;
+                if (run(direction2, before_direction2, 2)) {
+                    huashe(snake_arr, snake_arr2, 2);
+                    before_direction2 = direction2;
+                }
+            }
+
+        }
+
+        let interval1 = 0;
+        function setInteval1() {
+            if (!interval1) {
+                clearInterval(interval1);
+                interval1 = setInterval(
+                    () => {
+                        run(before_direction, before_direction, 1);
+                        huashe(snake_arr, snake_arr2, 1);
+                    },
+                    600
+                );
+            }
+        }
+        setInteval1();
+
+        let interval2 = 0;
+        function setInteval2() {
+            if (!interval2) {
+                clearInterval(interval2);
+                interval2 = setInterval(
+                    () => {
+                        run(before_direction2, before_direction2, 2);
+                        huashe(snake_arr, snake_arr2, 2);
+                    },
+                    600
+                );
+            }
+        }
+
+        setInteval2();
+
+    </script>
+</body>
+
+</html>

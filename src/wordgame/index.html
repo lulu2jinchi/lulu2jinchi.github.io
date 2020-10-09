@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Guess Word</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='lib/fontawesome/css/font-awesome.css'>
+</head>
+
+<body>
+    <div id="app">
+        <h1><i>TYPER</i></h1>
+        <div id="top">
+            <span id="h0" v-if = "iswin">Game over.</span>
+            <span id="h1" v-if = "notfirst">Type "start" to play</span>
+            <span id="h2" v-if = "isfirst">{{word}}</span>
+            <span id="h3">{{time}}s</span>
+        </div>
+        <input v-model = "type" v-on:keyup="rightOrNot" :placeholder="typeword"/>
+        <p id="one" ><span id="score">SCORE</span> <span id="scoreEqual">=</span> <span id="scoreNum">{{num}}</span><span
+                id="fenhao">;</span></p>
+        <p id="two"><span id="highscore">highscore</span> <span id="highscoreEqual">=</span> <span
+                id="highscoreNum">{{max}}</span><span id="fenhao2">;</span></p>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script src='main.js'></script>
+</body>

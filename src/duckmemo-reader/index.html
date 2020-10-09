@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Duck Memo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='lib/fontawesome/css/font-awesome.css'>
+</head>
+
+<body>
+    <div id='app'>
+        <div id='top' v-if="isBoxHidden">
+            <!-- <button class="button"><span class="fa fa-plus"></span></button> -->
+            <div id="shurulan">
+                <input type="text" name="name" id="input" v-if="isclicked" v-on:keyup.enter="print($event)" />
+                <button class="button" v-on:click="searchArea"><span class="fa fa-search" ></span></button>
+            </div>
+
+        </div>
+
+        <div class="clear"></div>
+        <div id='box' v-if="isBoxHidden">
+            <div v-for="item in news" class='news' v-on:click="newsOpen(item)">
+                <div class="size">
+                    <div class="newPic" v-bind:style="{ backgroundImage: 'url(' + item.img +')' }"></div>
+                    <div class="titleSize">
+                        <p class="newstitle" v-on:click="newsOpen(item)">{{item.title}} </p>
+                        <p class="time">{{item.time}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div v-if="sousuo" v-for="item in newsSearch" class='news' >
+                <div class="size">
+                    <div class="newPic" v-bind:style="{ backgroundImage: 'url(' + item.img +')' }"></div>
+                    <div class="titleSize">
+                        <p class="newstitle" >{{item.title}} </p>
+                        <p class="time">{{item.time}}</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <div id="empty"></div>
+
+            <div id="bottom">
+                <div class="bottom-button bottom-button-selected">
+                    <span class="fa fa-newspaper-o"></span>
+                </div>
+                <div class="bottom-button">
+                    <span class="fa fa-flash"></span>
+                </div>
+                <div class="bottom-button">
+                    <span class="fa fa-user-circle"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="searchNews" v-if="isSearched">
+
+        </div>
+
+        <div id="singleNew" v-if="isTextHidden">
+
+            <!-- <div id="singleNew" v-if="isTextHidden" v-bind:style="{ backgroundImage: 'url(' + item.img +')' }"
+            v-html='newsText'> -->
+            <img class="pic" v-bind:src="newsPic">
+            <div class="title">
+                <p v-html='title'></p>
+
+            </div>
+            <div class="htmlText">
+                <div v-html='newsText'></div>
+            </div>
+            <div id="wordMessage" v-if="isWordTranslated">
+                <div class="word">
+                    <span>{{word}}</span></div>
+                <div class="translations" v-for="item in translations">
+                    <p class="def">{{item.def}}</p>
+                    <span class="pos">({{item.pos}})</span>
+                    <button class="buttonAdd"><span class="fa fa-plus"></span></button>
+                </div>
+            </div>
+
+            <!-- <div class='newsText' > -->
+
+            <!-- </div> -->
+
+        </div>
+
+
+    </div>
+
+
+    <!-- <script src='click.js'></script> -->
+    <script src="lib/vue.js">1</script>
+    <script src='main.js'>1</script>
+
+</body>

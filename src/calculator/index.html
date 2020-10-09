@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>jisuanqi</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='lib/fontawesome/css/font-awesome.css'>
+</head>
+
+<body>
+    <div id="app">
+        <div id="show">
+            <div id="input">
+                <div id="inputnumber">{{show0}}</div>
+                <div class="cursor blink" >
+                </div>
+            </div>
+            <div id="result">{{result}}</div>
+        </div>
+
+        <table>
+            <tr>
+                <td v-on:click="clear">c</td>
+                <td v-on:click="value('x')">x</td>
+                <td v-on:click="value('÷')">÷</td>
+                <td v-on:click="back"><span class="fa fa-arrow-left" style="font-size: 20px;"></span></td>
+            </tr>
+            <tr>
+                <td v-on:click="typetoinput('7')">7</td>
+                <td v-on:click="typetoinput('8')">8</td>
+                <td v-on:click="typetoinput('9')">9</td>
+                <td v-on:click="value('-')">-</td>
+            </tr>
+            <tr>
+                <td v-on:click="typetoinput('4')">4</td>
+                <td v-on:click="typetoinput('5')">5</td>
+                <td v-on:click="typetoinput('6')">6</td>
+                <td v-on:click="value('+')">+</td>
+            </tr>
+            <tr>
+                <td v-on:click="typetoinput('1')">1</td>
+                <td v-on:click="typetoinput('2')">2</td>
+                <td v-on:click="typetoinput('3')">3</td>
+                <td rowspan="2" v-on:click="inputCal">=</td>
+            </tr>
+            <tr>
+                <td v-on:click="typetoinput('%')">%</td>
+                <td v-on:click="typetoinput('0')">0</td>
+                <td v-on:click="typetoinput('.')">.</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+    <script src="lib/vue.js">1</script>
+    <script src='script.js'>1</script>
+</body>
+
+</html>
