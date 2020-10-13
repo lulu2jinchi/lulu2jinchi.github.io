@@ -1,0 +1,741 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    font-family: '华文黑体';
+    text-align: justify;
+}
+
+#message {
+    background-color: white;
+    /* position: relative; */
+}
+
+h1 {
+    font-size: 300%;
+}
+
+h2 {
+    font-size: 200%;
+}
+
+h3 {
+    font-size: 180%;
+    color: gray;
+    /* font-weight: 50; */
+}
+
+#page {
+    width: 100%;
+    padding: 10px 30px 30px 30px;
+    border-radius: 50px;
+    margin-top: -70px;
+    background-color: white;
+    position: absolute;
+}
+
+#kfcpic {
+    width: 13%;
+    float: right;
+    border-radius: 20px;
+    border: 1px solid;
+    margin: -5px 10px 0px 10px;
+}
+
+#headpic {
+    width: 100%;
+}
+
+.button {
+    border-radius: 7px;
+    border: 1px solid red;
+    background-color: transparent;
+    color: red;
+    float: left;
+    margin-right: 15px;
+    font-size: 25px;
+    padding: 1px 10px 1px 10px;
+}
+
+#card {
+    margin: 20px 0px 20px 0px;
+    width: 100%;
+}
+
+#card1 {
+    float: left;
+    background-color: rgb(245, 210, 216);
+    width: 49%;
+    height: 140px;
+    border: none;
+    border-radius: 30px;
+}
+
+.button1 {
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(248, 91, 52);
+    color: white;
+    float: right;
+    margin-right: 15px;
+    font-size: 25px;
+    padding: 1px 20px 1px 20px;
+    /* position:absolute; */
+    margin-bottom: 25px;
+    margin-right: 25px;
+}
+
+.button3 {
+    border: none;
+    background-color: transparent;
+    font-size: 300%;
+    float: right;
+    color: rgb(155, 153, 153);
+    margin-right: 10px;
+}
+
+#card2 {
+    float: right;
+    background-color: rgb(245, 210, 216);
+    width: 49%;
+    height: 140px;
+    border: none;
+    border-radius: 30px;
+}
+
+.cardname {
+    font-size: 35px;
+    margin-left: 20px;
+    margin: 30px 0px 20px 30px;
+}
+
+.cardtext {
+    font-size: 25px;
+    margin-left: 30px;
+    color: gray;
+    margin-top: 0px;
+    width: 60%;
+}
+
+.clear {
+    clear: both;
+    height: 0px;
+    line-height: 0;
+    font-size: 0;
+}
+
+#red {
+    color: red;
+}
+
+.button2 {
+    border: none;
+    background-color: transparent;
+    color: grey;
+    font-size: 250%;
+    margin-right: 50px;
+}
+
+#pindan {
+    border: 1px solid rgb(67, 175, 224);
+    border-radius: 30px;
+    color: rgb(67, 175, 224);
+    background-color: transparent;
+    float: right;
+    font-size: 200%;
+    padding: 12px 20px 12px 20px;
+    margin-top: -7px;
+    /* font-weight: 350; */
+}
+
+#order {
+    margin-top: 20px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: 20px 0px 20px 0px;
+    z-index: 999;
+    margin-left: -30px;
+    padding-left: 30px;
+}
+
+.sup {
+    font-weight: 10;
+}
+
+#pics {
+    width: 100%;
+    /* position: relative; */
+    overflow: scroll;
+    margin-top: 10px;
+}
+
+#box {
+    width: 200%;
+    /* overflow:scroll; */
+    /* position:absolute; */
+}
+
+#pic1 {
+    width: 50%;
+    float: left;
+    /* overflow:scroll; */
+    border-radius: 20px;
+}
+
+#pic2 {
+    width: 50%;
+    float: right;
+    /* overflow:scroll; */
+    border-radius: 20px;
+}
+
+#suggest {
+    box-shadow: 0px 3px 15px 8px rgb(243, 243, 243);
+    width: 100%;
+    height: 520px;
+    border-radius: 20px;
+    margin-top: 25px;
+    padding: 35px 0px 30px 30px;
+    overflow: scroll;
+}
+
+#text {
+    font-size: 35px;
+    margin-top: 10px;
+    float: left;
+    color: rgb(32, 32, 32);
+}
+
+#box1 {
+    float: left;
+    width: 33.3%;
+}
+
+#box2 {
+    float: left;
+    width: 33.3%;
+}
+
+#box3 {
+    float: left;
+    width: 33.3%;
+}
+
+.food {
+    width: 80%;
+    margin: 0
+}
+
+.button4 {
+    float: right;
+    border: none;
+    background-color: transparent;
+    font-size: 250%;
+    color: rgb(121, 121, 121);
+    margin-right: 40px;
+}
+
+.button5 {
+    color: rgb(67, 175, 224);
+    margin-right: 0px;
+    margin-top: -15px;
+    border: none;
+    background-color: transparent;
+    font-size: 300%;
+    float: right;
+}
+
+.button666 {
+    color: rgb(67, 175, 224);
+    margin-right: 0px;
+    margin-top: -15px;
+    border: none;
+    background-color: transparent;
+    font-size: 300%;
+    float: right;
+}
+
+.button7 {
+    margin-right: 40px;
+}
+
+.button10 {
+    color: rgb(67, 175, 224);
+    margin-right: 20px;
+    margin-top: -7px;
+    border: 3px solid rgb(67, 175, 224);
+    border-radius: 100%;
+    background-color: transparent;
+    font-size: 200%;
+    float: right;
+    width:42px;
+    height:42px;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.button66 {
+    color: rgb(67, 175, 224);
+    margin-right: 20px;
+    margin-top: -7px;
+    border: 3px solid rgb(67, 175, 224);
+    border-radius: 100%;
+    background-color: transparent;
+    font-size: 200%;
+    float: right;
+    width:42px;
+    height:42px;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.single{
+    color: rgb(74, 74, 74);
+    margin-right: 20px;
+    margin-top: 0px;
+    border: none;
+    background-color: transparent;
+    font-size: 220%;
+    float: right;
+}
+
+.text2 {
+    font-size: 200%;
+    font-weight: 100;
+}
+
+.text3 {
+    font-size: 200%;
+    font-weight: 100;
+    color: rgb(218, 80, 38);
+}
+
+.small {
+    font-size: 160%;
+    /* font-size: 200%; */
+    font-weight: 100;
+    color: rgb(218, 80, 38);
+}
+.small0{
+    font-size: 80%;
+    /* font-size: 200%; */
+    font-weight: 100;
+    color: rgb(218, 80, 38);
+}
+
+#boxbox {
+    width: 92%;
+    position: absolute;
+    /* overflow:scroll; */
+}
+
+#delete {
+    color: grey;
+    text-decoration: line-through;
+    font-size: 160%;
+    /* font-size: 200%; */
+    font-weight: 100;
+  }
+
+#delete0 {
+    color: grey;
+    text-decoration: line-through;
+    font-size: 80%;
+    /* font-size: 200%; */
+    font-weight: 100;
+  }
+#bottom {
+    bottom: 0px;
+    background-color: rgb(45, 45, 45);
+    height: 150px;
+    position: fixed;
+    width: 100%;
+    left:0px;
+    z-index: 2;
+}
+
+#pay {
+    /* float: right; */
+    border: none;
+    width: 30%;
+    height: 150px;
+    background-color: rgb(102, 101, 101);
+    font-size: 280%;
+    color: rgb(255, 255, 255);
+    margin-top: -63px;
+    position:absolute;
+    right:0px;
+    bottom: 0px;
+}
+
+#text4 {
+    float: left;
+    width: 300px;
+    color: rgb(177, 174, 174);
+    font-size: 200%;
+    margin: 32px 0px 0px 30px;
+    font-weight: 100;
+}
+
+#text5 {
+    float:left;
+    width: 45%;
+    color: rgb(211, 209, 209);
+    font-size: 150%;
+    margin: 7px 200px 40px 30px;
+    font-weight: 100;
+}
+
+#bottom>.fa-dropbox {
+    float: left;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(68, 67, 67);
+    color: white;
+    font-size: 100px;
+    border-radius: 300px;
+    margin-top: -20px;
+    margin-left: 30px;
+    text-align: center;
+    /* justify-content: center;
+    display: flex; */
+    padding-top: 26px;
+    z-index: 1;
+}
+
+.addnumber{
+    background-color: rgb(218, 80, 38);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: -20px 0px 0px -40px;
+    position: absolute;
+    text-align: center;
+    font-size: 150%;
+    padding-top:10px;
+    color:white;
+    font-weight: 800;
+}
+
+.divider {
+    margin-bottom: 20px;
+}
+
+#food {
+    margin-top: 30px;
+}
+
+#leftbox{
+    bottom:0px;
+    position: absolute;
+    top:1390px;
+    
+}
+#left {
+    float: left;
+    width: 200px;
+    background-color: rgb(241, 238, 238);
+    height: 2000px;
+    margin-left: -30px;
+    overflow: scroll;
+    position: sticky;;
+    top: 100px;
+    bottom: 0px;
+}
+
+.first {
+    background-color: white;
+
+}
+
+.button6 {
+    border: none;
+    width: 200px;
+    height: 120px;
+    font-size: 30px;
+    color: gray;
+    font-weight: 300;
+    text-align: left;
+    padding-left: 20px;
+}
+
+#right {
+    float: right;
+    width: 740px;
+    height: 3100px;
+}
+
+#sales {
+    color: rgb(138, 136, 136);
+    font-size: 22px;
+    padding: 20px;
+    font-weight: 100;
+    margin: 10px 0px 20px 0px;
+    position: sticky;
+    top:100px;
+    background-color: white;
+}
+
+#bigger {
+    font-size: 30px;
+    color: rgb(53, 52, 52);
+}
+
+.hahaha{
+    width: 100%;
+    height:300px;
+    padding:20px;
+    /* display:block; */
+}
+
+.chicken{
+    height:100%;
+    float: left;
+    margin-right: 30px;
+}
+
+.text6{
+    font-size: 200%;
+    font-weight: 500;
+}
+
+.text7{
+    font-size: 130%;
+    font-weight: 100;
+    color: gray;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+    display:block;
+}
+
+.number{
+    border:1px solid rgb(218, 80, 38);
+    padding:5px 7px 5px 7px;
+    border-radius: 8px;
+}
+
+.text9{
+    color:rgb(218, 80, 38);
+    font-size: 150%;
+}
+
+
+
+#back{
+    /* float:left; */
+    width:80px;
+    height:80px;
+    background-color: rgb(32, 32, 32,40%);
+    border-radius: 100%;
+    font-size: 450%;
+    color:white;
+    margin: 60px 30px 0px 30px;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    
+}
+
+#star{
+    float:right;
+    width:80px;
+    height:80px;
+    background-color: rgb(32, 32, 32,40%);
+    border-radius: 100%;
+    font-size: 350%;
+    color:white;
+    margin: 60px 30px 0px 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 10px;
+    
+}
+
+#share{
+    /* float:right; */
+    width:80px;
+    height:80px;
+    background-color: rgb(32, 32, 32,40%);
+    border-radius: 100%;
+    font-size: 350%;
+    color:white;
+    margin: 60px 30px 0px 30px;
+    position: absolute;
+    top: 0;
+    right:120px;
+    text-align: center;
+    padding-top: 15px;
+    
+}
+
+#pingjia{
+    /* float:right; */
+    width:250px;
+    height:50px;
+    background-color: white;
+    border-radius: 30px;
+    font-size: 180%;
+    color:rgb(0, 0, 0);
+    margin: 60px 30px 0px 30px;
+    position: absolute;
+    top: 200px;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: 100;
+    
+}
+
+/* javascript 事件  javascript 操作dom */
+#last-bottom {
+    background-color: rgb(252, 247, 214, 80%);
+    color: rgb(218, 80, 38);
+    /* position: absolute; */
+    /* top: -80px; */
+    width: 100%;
+    height: 80px;
+    font-size: 170%;
+    font-weight: 200;
+    z-index: -1;
+    padding:0px 0px 0px 30px;
+    /* margin-top: 10px; */
+    border-top: 1px solid rgb(208, 172, 128);
+}
+
+#text8{
+    margin-top: 30px;
+}
+
+#last-bottom0 {
+    background-color: rgb(252, 247, 214, 80%);
+    color: rgb(218, 80, 38);
+    /* position: absolute; */
+    /* bottom: 550px; */
+    width: 100%;
+    height: 120px;
+    font-size: 170%;
+    font-weight: 200;
+    z-index: -1;
+    padding:0px 0px 0px 30px;
+    /* margin-top: 10px; */
+    border-top: 1px solid rgb(208, 172, 128);
+}
+
+#boc{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 150px;
+    background-color: white;
+    z-index: 2;
+    padding: 0 0 0px 0;
+}
+
+#grey{
+    background-color: rgb(245, 245, 245);
+    font-size: 170%;
+    padding: 20px;
+}
+
+.smallbox {
+    padding: 20px;
+}
+
+.smallbox .name{
+    font-size: 170%;
+}
+
+.smallbox .nowMoney {
+    font-size: 150%;
+}
+
+.smallbox .nowPrice {
+    font-size: 170%;
+}
+
+#alreadyOrder{
+    font-size: 170%;
+    float:left;
+}
+
+#empty{
+    font-size: 130%;
+    float:right;
+}
+
+#text8text{
+    color: rgb(16, 16, 16);
+    margin-top: 20px;
+    font-size: 120%;
+}
+
+#text8text2{
+    color:  rgb(53, 52, 52);
+    margin-top: -15px;
+    font-weight: 100;
+}
+
+#last-bottom2 {
+    background-color: rgb(252, 247, 214, 80%);
+    color: rgb(218, 80, 38);
+    position: absolute;
+    top: -80px;
+    width: 100%;
+    height: 160px;
+    font-size: 170%;
+    font-weight: 200;
+    z-index: -1;
+    padding-left: 30px;
+    border-top: 1px solid rgb(208, 172, 128);
+
+}
+
+#money {
+    color:white;
+    float: left;
+    width: 40px;
+    /* color: rgb(177, 174, 174); */
+    font-size: 350%;
+    margin: 32px 0px 0px 30px;
+    font-weight: 100;
+
+}
+
+#num{
+    color:white;
+    float: left;
+    /* width: 100px; */
+    /* color: rgb(177, 174, 174); */
+    font-size: 350%;
+    margin: 32px 0px 0px 0px;
+    font-weight: 100;
+}
+/* 
+#money1 {
+    color:rgb(122, 121, 121);
+    float: left;
+    width: 40px;
+    color: rgb(177, 174, 174); 
+    font-size: 200%;
+    margin: 50px 0px 0px 0px;
+    font-weight: 100;
+    text-decoration: line-through;
+} */ 
+
+#num1{
+    color:rgb(122, 121, 121);
+    float: left;
+    width: 500px;
+    /* color: rgb(177, 174, 174); */
+    font-size: 200%;
+    margin: 50px 0px 0px 15px;
+    font-weight: 100;
+    text-decoration: line-through;
+
+}

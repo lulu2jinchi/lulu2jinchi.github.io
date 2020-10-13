@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <style>
+        .item {
+            font-size: 18px;
+            border: 1px solid blue;
+            width: 200px;
+        }
+
+        .name {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 用来放数据的盒子 -->
+    <div id="box">
+    </div>
+
+    <script>
+
+        //先找到盒子
+        // const box = document.querySelector("#box");
+
+        //用来填充的数据
+        const data = [
+            {
+                name: '颜璐',
+                gender: '女',
+                age: '23',
+            },
+            {
+                name: '廖彬彬',
+                gender: '男',
+                age: '27',
+            },
+            {
+                name: '钱壮',
+                gender: '男',
+                age: '26',
+            }
+        ];
+
+        //循环每个数据
+        for (let i = 0; i < data.length; i++) {
+            let d = data[i];
+            //生成一个用来放一行数据的盒子
+            const oneItem = document.createElement('div');
+            //设置css class
+            oneItem.class = 'item';
+            //设置盒子的内容，用模版字符串
+            oneItem.innerHTML = `
+                    <span class='name'>${d.name}</span>
+                    <span>${d.gender}</span>
+                    <span>${d.age}</span>
+                `;
+            //将本行数据的盒子放到大盒子
+            box.appendChild(oneItem);
+        }
+
+        
+    </script>
+</body>
+
+</html>
